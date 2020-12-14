@@ -52,7 +52,9 @@ function App() {
   }
 
   async function getCommodities() {
+    console.log('opa')
     const req = await axios.get('https://sintetizador.rj.r.appspot.com/utils/commodities')
+    console.log(req.data)
     return req.data
   }
 
@@ -110,11 +112,20 @@ function App() {
 
   useEffect(() => {
     async function fetch() {
+      try {
+        setCommodities(await getCommodities())
+      } catch (err) {
+        console.log(err)
+      }
       setWeekSeq(getWeekSequence())
-      setForecast(await getWeekWeather())
-      setCommodities(await getCommodities())
-    }
+      try {
+        setForecast(await getWeekWeather())
+        console.log(forecast)
+      } catch (err) {
+        console.log(err)
+      }
 
+    }
     fetch()
   }, [])
 
