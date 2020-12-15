@@ -148,6 +148,7 @@ export const Container = styled.div`
     .content h1{
         font-family: 'Exo 2', sans-serif;
         font-weight:900;
+        font-size: 26px;
     }
 
     .forecast-container{

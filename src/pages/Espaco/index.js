@@ -304,12 +304,12 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
               </div>
             </div>
           </li>
-          <li className={turn[1] ? "medium" : "medium"}>
+          <li className={turn[1] ? "" : ""}>
             <div className="the-front" onClick={() => { openModal('C1F') }}>
               <div className="content">
                 <div className="cine-container" />
                 <div className="label-content">
-                  <h1>Para você</h1>
+                  <h1>Para Você</h1>
                 </div>
               </div>
             </div>
@@ -319,12 +319,12 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
               </div>
             </div>
           </li>
-          <li className={turn[2] ? "" : "turned"}>
+          <li className={turn[2] ? "medium" : "medium turned"}>
             <div className="the-front" onClick={() => { openModal('C2F') }}>
               <div className="content" >
                 <div className="prepare-container" />
                 <div className="label-content">
-                  <h1>Rumo aos 100</h1>
+                  <h1>Calc. de Expectativa de Vida</h1>
                 </div>
               </div>
             </div>
@@ -332,7 +332,7 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
               <div className="content">
                 <div className="simulate-container" />
                 <div className="label-content">
-                  <h1>Oficina do Futuro</h1>
+                  <h1>Simulador de Previdência</h1>
                 </div>
               </div>
             </div>
