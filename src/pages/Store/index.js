@@ -84,6 +84,7 @@ function Main() {
         <img
           className="logo"
           src="https://logodownload.org/wp-content/uploads/2017/11/sicredi-logo.png"
+          style={{background: '#fff', padding: 15, borderRadius: 5}}
         />
         <h1>Sicredi Store</h1>
       </div>

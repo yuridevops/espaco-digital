@@ -67,6 +67,7 @@ function App() {
     })
     const response = await axios.get(`https://sintetizador.rj.r.appspot.com/utils/forecast/${city.woeid}`)
     const { forecast } = response.data
+    console.log(forecast)
     return forecast
   }
 
@@ -117,8 +118,8 @@ function App() {
       } catch (err) {
         console.log(err)
       }
-      setWeekSeq(getWeekSequence())
       try {
+        setWeekSeq(getWeekSequence())
         setForecast(await getWeekWeather())
         console.log(forecast)
       } catch (err) {
@@ -269,7 +270,6 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
                     <iframe src="https://drive.google.com/file/d/1Z2MDx59pezcoktMuVxcZlq7s11h4kuRS/preview" width="640" height="480" frameBorder="0" scrolling="no" />
                     :
                     <div className="commodities-container">
-                      <img src={sicrediLogo} width="100" style={{ justifySelf: 'center' }} />
                       <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-start', flexDirection: 'column' }}>
                         <div className="commodities-item">
                           <FaSeedling size={40} color="#64c832" />
@@ -289,8 +289,7 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
                           <strong>Ultima atualização: 14/12/2020 - 10:20AM </strong>
                         </div>
                         <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <strong>Fonte:</strong>
-                          <img src={copacolLogo} style={{ width: 80, marginLeft: 10 }} />
+                          <img src={copacolLogo} style={{ width: 80, marginLeft: 10, background: '#fff', padding: 2, borderRadius: 4 }} />
                         </div>
                       </div>
                     </div>
@@ -363,7 +362,8 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
                 <div className="forecast-container">
                   {
                     forecast !== null &&
-                    forecast.map((item, index) =>
+                    forecast.map((item, index) => (
+                      item !== null &&
                       <div className="forecast-item">
                         <div className="forecast-component-top">
                           <div style={{ display: "flex", justifyContent: 'flex-end' }}>
@@ -385,6 +385,8 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
                           </h2>
                         </div >
                       </div>
+                    )
+
                     )
                   }
                 </div>
