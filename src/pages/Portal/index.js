@@ -21,6 +21,7 @@ function Portal() {
         <img
           className="logo"
           src="https://logodownload.org/wp-content/uploads/2017/11/sicredi-logo.png"
+          style={{background: '#fff', padding: 20, borderRadius: 10}}
         />
       </div>
       {
