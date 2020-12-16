@@ -31,8 +31,7 @@ export const Container = styled.div`
     }
 
     .header h1{
-        font-size: 200%;
-        color: #fff;
+            color: #fff;
         font-weight: 900;
     }
 
@@ -148,7 +147,6 @@ export const Container = styled.div`
     .content h1{
         font-family: 'Exo 2', sans-serif;
         font-weight:900;
-        font-size: 26px;
     }
 
     .forecast-container{
@@ -201,7 +199,7 @@ export const Container = styled.div`
     .forecast-component-top h1, h2{
         margin: 0;
         padding: 0;
-        font-weight: 500;
+        font-weight: 900;
     }
 
 

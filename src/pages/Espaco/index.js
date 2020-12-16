@@ -273,23 +273,23 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
                       <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-start', flexDirection: 'column' }}>
                         <div className="commodities-item">
                           <FaSeedling size={40} color="#64c832" />
-                          <strong style={{ fontSize: 22, marginLeft: 10 }}>SOJA - Saco de 60kg = <strong style={{ color: '#64c832' }}>R${commodities.soja},00</strong></strong>
+                          <strong style={{ fontSize: 22, marginLeft: 10 }}>SOJA - Saco de 60kg = <strong style={{ color: '#64c832' }}>R${commodities.soja}</strong></strong>
                         </div>
                         <div className="commodities-item">
                           <GiCorn size={40} color="#64c832" />
-                          <strong style={{ fontSize: 22, marginLeft: 10 }}>MILHO - Saco 60kg = <strong style={{ color: '#64c832' }}>R${commodities.milho},00</strong></strong>
+                          <strong style={{ fontSize: 22, marginLeft: 10 }}>MILHO - Saco 60kg = <strong style={{ color: '#64c832' }}>R${commodities.milho}</strong></strong>
                         </div>
                         <div className="commodities-item">
                           <GiWheat size={40} color="#64c832" />
-                          <strong style={{ fontSize: 22, marginLeft: 10 }}>TRIGO Pão Ph 78 - Saco 60kg = <strong style={{ color: '#64c832' }}>R${commodities.trigo},00</strong></strong>
+                          <strong style={{ fontSize: 22, marginLeft: 10 }}>TRIGO Pão Ph 78 - Saco 60kg = <strong style={{ color: '#64c832' }}>R${commodities.trigo}</strong></strong>
                         </div>
                       </div>
                       <div style={{ display: "flex", justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
                         <div>
-                          <strong>Ultima atualização: 14/12/2020 - 10:20AM </strong>
+                          <h3>Ultima atualização: 14/12/2020 - 10:20AM </h3>
                         </div>
                         <div style={{ display: 'flex', alignItems: 'center' }}>
-                          <img src={copacolLogo} style={{ width: 80, marginLeft: 10, background: '#fff', padding: 2, borderRadius: 4 }} />
+                          <img src={copacolLogo} style={{ width: 100, marginLeft: 10, background: '#fff', padding: 2, borderRadius: 4 }} />
                         </div>
                       </div>
                     </div>
@@ -367,10 +367,10 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
                       <div className="forecast-item">
                         <div className="forecast-component-top">
                           <div style={{ display: "flex", justifyContent: 'flex-end' }}>
-                            <h1 style={{ fontSize: 40 }}>{item.max}</h1>
+                            <h1 style={{ fontSize: 45 }}>{item.max}</h1>
                           </div>
                           <div style={{ display: "flex", justifyContent: 'flex-start' }}>
-                            <h2 style={{ color: "#c0ceda" }}>{item.min}</h2>
+                            <h2 style={{ fontSize: 30 , color: "#c0ceda" }}>{item.min}</h2>
                           </div>
 
                         </div >
