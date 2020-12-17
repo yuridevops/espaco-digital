@@ -393,7 +393,7 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
                 <div className="forecast-title-container">
                   {
                     forecast !== null &&
-                    <h1>Previsão para os próximos 7 dias</h1>
+                    <h1>Previsão para os próximos {forecast.length} dias</h1>
                   }
                 </div>
               </div>
