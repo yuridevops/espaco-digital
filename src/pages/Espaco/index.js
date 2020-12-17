@@ -52,7 +52,6 @@ function App() {
   }
 
   async function getCommodities() {
-    console.log('opa')
     const req = await axios.get('https://sintetizador.rj.r.appspot.com/utils/commodities')
     console.log(req.data)
     return req.data
@@ -273,15 +272,15 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
                       <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-start', flexDirection: 'column' }}>
                         <div className="commodities-item">
                           <FaSeedling size={40} color="#64c832" />
-                          <strong style={{ fontSize: 22, marginLeft: 10 }}>SOJA - Saco de 60kg = <strong style={{ color: '#64c832' }}>R${commodities.soja}</strong></strong>
+                          <strong style={{ fontSize: 22, marginLeft: 10 }}>SOJA - Saco de 60kg = <strong style={{ color: '#64c832' }}>R$ {commodities.soja}</strong></strong>
                         </div>
                         <div className="commodities-item">
                           <GiCorn size={40} color="#64c832" />
-                          <strong style={{ fontSize: 22, marginLeft: 10 }}>MILHO - Saco 60kg = <strong style={{ color: '#64c832' }}>R${commodities.milho}</strong></strong>
+                          <strong style={{ fontSize: 22, marginLeft: 10 }}>MILHO - Saco 60kg = <strong style={{ color: '#64c832' }}>R$ {commodities.milho}</strong></strong>
                         </div>
                         <div className="commodities-item">
                           <GiWheat size={40} color="#64c832" />
-                          <strong style={{ fontSize: 22, marginLeft: 10 }}>TRIGO Pão Ph 78 - Saco 60kg = <strong style={{ color: '#64c832' }}>R${commodities.trigo}</strong></strong>
+                          <strong style={{ fontSize: 22, marginLeft: 10 }}>TRIGO Pão Ph 78 - Saco 60kg = <strong style={{ color: '#64c832' }}>R$ {commodities.trigo}</strong></strong>
                         </div>
                       </div>
                       <div style={{ display: "flex", justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
