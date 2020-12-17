@@ -370,7 +370,7 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
                             <h1 style={{ fontSize: 45 }}>{item.max}</h1>
                           </div>
                           <div style={{ display: "flex", justifyContent: 'flex-start' }}>
-                            <h2 style={{ fontSize: 30 , color: "#c0ceda" }}>{item.min}</h2>
+                            <h2 style={{ fontSize: 30, color: "#c0ceda" }}>{item.min}</h2>
                           </div>
 
                         </div >
@@ -391,7 +391,10 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
                   }
                 </div>
                 <div className="forecast-title-container">
-                  <h1>Previsão para os próximos 7 dias</h1>
+                  {
+                    forecast !== null &&
+                    <h1>Previsão para os próximos 7 dias</h1>
+                  }
                 </div>
               </div>
             </div>
