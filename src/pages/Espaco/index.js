@@ -286,7 +286,7 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
                       </div>
                       <div style={{ display: "flex", justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
                         <div>
-                          <h3>Ultima atualização: 14/12/2020 - 10:20AM </h3>
+                          <h3>Ultima atualização: {commodities.data} - 10:20AM </h3>
                         </div>
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                           <img src={copacolLogo} style={{ width: 100, marginLeft: 10, background: '#fff', padding: 2, borderRadius: 4 }} />
