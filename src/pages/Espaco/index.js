@@ -266,7 +266,7 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
 
                 {
                   commodities === null ?
-                    <iframe src="https://drive.google.com/file/d/1Z2MDx59pezcoktMuVxcZlq7s11h4kuRS/preview" width="640" height="480" frameBorder="0" scrolling="no" />
+                    <iframe src="https://drive.google.com/file/d/1VYaefC99bVtmtmQGw1PkLOqI7-7jK1gS/view?usp=sharing" width="640" height="480" frameBorder="0" scrolling="no" />
                     :
                     <div className="commodities-container">
                       <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-start', flexDirection: 'column' }}>
