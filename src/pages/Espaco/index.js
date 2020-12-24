@@ -11,6 +11,7 @@ import { FaSeedling } from 'react-icons/fa'
 import sicrediLogo from '../../assets/sicredi-texto.png'
 import copacolLogo from '../../assets/copacol.png'
 import cities from '../../utils/woeid'
+import music from  '../../assets/innovation.mp3'
 
 function App() {
 
@@ -180,6 +181,7 @@ function App() {
         style={customStyles}
         contentLabel="Example Modal"
       >
+
         <div style={{ width: '80vw', height: '80vh' }}>
           {
             <div style={modalStyles.modalContainer}>
@@ -259,6 +261,9 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
 
 
       <div className="menu">
+        <audio autoPlay loop>
+          <source src={music} type="audio/mpeg"/>
+        </audio>
         <ul>
           <li className={turn[0] ? "large" : "large"} >
             <div className="the-front" >
@@ -366,10 +371,10 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
                       <div className="forecast-item">
                         <div className="forecast-component-top">
                           <div style={{ display: "flex", justifyContent: 'flex-end' }}>
-                            <h1 style={{ fontSize: 45 }}>{item.max}</h1>
+                            <h1 style={{ fontSize: 35 }}>{item.max}</h1>
                           </div>
                           <div style={{ display: "flex", justifyContent: 'flex-start' }}>
-                            <h2 style={{ fontSize: 30, color: "#c0ceda" }}>{item.min}</h2>
+                            <h2 style={{ fontSize: 25, color: "#c0ceda" }}>{item.min}</h2>
                           </div>
 
                         </div >
