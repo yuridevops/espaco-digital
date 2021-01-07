@@ -9,7 +9,9 @@ background-size: contain;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-height: 100vh;
+min-height: 100vh;
+padding-top: 40px;
+padding-bottom: 40px;
 
 
 .logo-container{

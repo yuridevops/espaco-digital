@@ -19,7 +19,7 @@ export const Container = styled.div`
     //background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(234,249,249,0.67) 0.1%, rgba(239,249,251,0.63) 90.1% );
     background-size: contain;
     height: 100vh;
-    
+    overflow: hidden;
  
     .header{
         display: flex;
@@ -288,7 +288,7 @@ export const Container = styled.div`
 
     .oculus-container{
         background-image: url(${oculus});
-        background-size: cover;
+        background-size: contain;
 
         background-position: center;
         background-repeat: no-repeat;

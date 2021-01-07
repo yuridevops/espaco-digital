@@ -11,6 +11,8 @@ import { FaSeedling } from 'react-icons/fa'
 import sicrediLogo from '../../assets/sicredi-texto.png'
 import copacolLogo from '../../assets/copacol.png'
 import cities from '../../utils/woeid'
+import { BsDroplet } from 'react-icons/bs'
+
 
 function App() {
 
@@ -23,6 +25,7 @@ function App() {
   const [commodities, setCommodities] = useState(null);
   const [mainPage, setMainPage] = useState(false);
   const [timer, setTimer] = useState(-1)
+  const [last, setLast] = useState(0)
 
 
   let { id } = useParams()
@@ -70,6 +73,8 @@ function App() {
     })
     const response = await axios.get(`https://sintetizador.rj.r.appspot.com/utils/forecast/${city.woeid}`)
     const { forecast } = response.data
+    forecast.pop()
+    forecast.pop()
     console.log(forecast)
     return forecast
   }
@@ -116,7 +121,7 @@ function App() {
     if (timer === -1) {
       setInterval(() => setTimer(time => time + 1), 1000)
     }
-    else if (timer === 600) {
+    else if (timer === 300) {
       moveToIntro()
       setTimer(0)
     }
@@ -126,25 +131,45 @@ function App() {
 
   useEffect(() => {
     async function fetch() {
-      try {
-        setCommodities(await getCommodities())
-      } catch (err) {
-        console.log(err)
+      console.log(commodities)
+      if (mainPage) {
+        try {
+          let commoditieInterval = setInterval(async () => {
+            setCommodities(await getCommodities())
+            clearInterval(commoditieInterval)
+          }, 8000)
+
+        } catch (err) {
+          console.log(err)
+        }
       }
       try {
         setWeekSeq(getWeekSequence())
         setForecast(await getWeekWeather())
-        console.log(forecast)
       } catch (err) {
         console.log(err)
       }
-
     }
+    let auxHours = new Date().getHours().toString()
+    let auxMinutes = new Date().getMinutes().toString()
+
+    if (auxHours.length === 1) {
+      auxHours = '0' + auxHours
+    }
+
+    if (auxMinutes.length === 1) {
+      auxMinutes = '0' + auxMinutes
+    }
+
+    const auxTime = `${auxHours}:${auxMinutes}`
+    setLast(auxTime)
+
     fetch()
-  }, [])
+  }, [mainPage])
 
   function moveToIntro() {
     setMainPage(false)
+    setCommodities(null)
   }
 
   function handleActivity() {
@@ -246,6 +271,7 @@ function App() {
                     {
                       choice === 'C1B' &&
                       <iframe src="http://previdencia.sicredi.com.br/simulacao/comeco" width="100%" height="100%" />
+
                     }
                     {
                       choice === 'C2F' &&
@@ -295,7 +321,7 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
 
 
             <div className="menu">
-              <audio autoPlay loop  muted={ videoChoice === null ? false : true}>
+              <audio autoPlay loop muted={videoChoice === null ? false : true}>
                 <source src="https://storage.googleapis.com/sicredi/audios/innovation_low.mp3" type="audio/mpeg" />
               </audio>
               <ul>
@@ -305,7 +331,11 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
 
                       {
                         commodities === null ?
-                          <iframe src="https://drive.google.com/file/d/1VYaefC99bVtmtmQGw1PkLOqI7-7jK1gS/view?usp=sharing" width="640" height="480" frameBorder="0" scrolling="no" />
+                          <div className="commodities-container" style={{ justifyContent: 'center', alignItems: 'center' }}>
+                            <img width="60" src="https://www.blogson.com.br/wp-content/uploads/2017/10/584b607f5c2ff075429dc0e7b8d142ef.gif" />
+                            <h4>Carregando valor das commodities</h4>
+                            <iframe style={{ opacity: 0 }} src="https://drive.google.com/file/d/1VYaefC99bVtmtmQGw1PkLOqI7-7jK1gS/preview" width="0" height="0" frameBorder="0" scrolling="no" />
+                          </div>
                           :
                           <div className="commodities-container">
                             <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-start', flexDirection: 'column' }}>
@@ -324,7 +354,7 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
                             </div>
                             <div style={{ display: "flex", justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
                               <div>
-                                <h3>Ultima atualização: {commodities.data} - 10:20AM </h3>
+                                <h3>Última atualização: {commodities.data} - {last} </h3>
                               </div>
                               <div style={{ display: 'flex', alignItems: 'center' }}>
                                 <img src={copacolLogo} style={{ width: 100, marginLeft: 10, background: '#fff', padding: 2, borderRadius: 4 }} />
@@ -375,7 +405,7 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
                     </div>
                   </div>
                 </li>
-                <li className={turn[3] ? "" : "small turned"}>
+                <li className={turn[3] ? "" : "turned"}>
                   <div className="the-front" onClick={() => { openModal('C3F') }}>
                     <div className="content">
                       <div className="tinbot-container" />
@@ -393,34 +423,52 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
                     </div>
                   </div>
                 </li>
-                <li className="large">
+                <li className="">
                   <div className="the-front" >
                     <div className="content">
 
                       <div className="forecast-container">
                         {
                           forecast !== null &&
+
                           forecast.map((item, index) => (
                             item !== null &&
                             <div className="forecast-item">
                               <div className="forecast-component-top">
                                 <div style={{ display: "flex", justifyContent: 'flex-end' }}>
-                                  <h1 style={{ fontSize: 35 }}>{item.max}</h1>
+                                  <h1 style={{ fontSize: 30 }}>{item.max}°</h1>
                                 </div>
                                 <div style={{ display: "flex", justifyContent: 'flex-start' }}>
-                                  <h2 style={{ fontSize: 25, color: "#c0ceda" }}>{item.min}</h2>
+                                  <h2 style={{ fontSize: 25, color: "#c0ceda", paddingTop: 10 }}>{item.min}°</h2>
                                 </div>
+
 
                               </div >
                               <div className="forecast-component">
+                                {
+                                  false &&
+                                  <img src={`https://developer.accuweather.com/sites/default/files/${item.iconId}-s.png`} />
+                                }
                                 <img src={`https://storage.googleapis.com/sicredi/Tela-iterativa/${item.condition}.png`} />
                               </div >
+                              {
+                                false &&
+                                <div className="forecast-component">
+                                  <BsDroplet size={20} style={{ marginRight: 5 }} />
+                                  <div style={{ flexDirection: 'column', display: 'flex' }}>
+                                    <h4 >{item.rainPerc}%</h4>
+                                    <h4 >{item.rainMili}mm</h4>
+                                  </div>
+
+                                </div >
+
+                              }
                               <div className={`forecast-component `} style={{ marginRight: 10 }}>
-                                <h2 className={` ${(weekSeq[index] === 'DOM' || weekSeq[index] === 'SAB') && `feriado`}`}>
+                                <h3 className={` ${(weekSeq[index] === 'DOM' || weekSeq[index] === 'SAB') && `feriado`}`}>
                                   {
                                     weekSeq[index]
                                   }
-                                </h2>
+                                </h3>
                               </div >
                             </div>
                           )
@@ -431,7 +479,7 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
                       <div className="forecast-title-container">
                         {
                           forecast !== null &&
-                          <h1>Previsão para os próximos {forecast.length} dias</h1>
+                          <h1>Previsão do tempo</h1>
                         }
                       </div>
                     </div>
@@ -455,7 +503,13 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
           <div onClick={() => {
             setMainPage(true)
             handleActivity()
-          }}>
+
+          }}
+            style={{
+              height: '100vh',
+              overflow: 'hidden'
+            }}
+          >
             <div className="intro-video-container" style={{
               position: 'absolute',
               marginLeft: "auto",
@@ -463,7 +517,8 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
               left: 0,
               right: 0,
               top: '15%',
-              textAlign: "center"
+              textAlign: "center",
+
             }}>
               <div className="intro-container">
                 <img src={sicrediLogo} height="150" style={{ backgroundColor: '#fff', padding: 20, borderRadius: 10, boxShadow: "0px 6px 27px -2px rgba(0,0,0,0.75)" }} />
@@ -473,7 +528,7 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
                 </h3>
               </div>
             </div>
-            <video width="100%" height="100%" autoPlay loop>
+            <video width="100%" autoPlay loop>
               <source src="https://storage.googleapis.com/sicredi/videos/background.mp4" type="video/mp4" />
             </video>
             <audio autoPlay loop>

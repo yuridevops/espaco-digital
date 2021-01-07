@@ -9,8 +9,19 @@ function Portal() {
 
   useEffect(() => {
     async function fetch() {
-      const response = await api.get('/list')
-      setBranchs(response.data)
+      const response = await api.get('/branchs')
+      const auxBranchs = response.data.sort((a, b) => {
+        if (a.id < b.id) {
+          return -1
+        }
+        if (a.id > b.id) {
+          return 1
+        }
+        if (a.id > b.id) {
+          return 0
+        }
+      })
+      setBranchs(auxBranchs)
     }
     fetch()
   }, [])
@@ -21,7 +32,7 @@ function Portal() {
         <img
           className="logo"
           src="https://logodownload.org/wp-content/uploads/2017/11/sicredi-logo.png"
-          style={{background: '#fff', padding: 20, borderRadius: 10}}
+          style={{ background: '#fff', padding: 20, borderRadius: 10 }}
         />
       </div>
       {
