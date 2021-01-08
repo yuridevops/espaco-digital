@@ -172,8 +172,10 @@ function App() {
     setCommodities(null)
   }
 
-  function handleActivity() {
+  function handleActivity(e) {
+    e.preventDefault(); 
     setTimer(0)
+    return false; 
   }
 
 
@@ -233,7 +235,7 @@ function App() {
       {
         mainPage ?
 
-          <Container onClick={handleActivity} onClick={handleActivity}>
+          <Container onClick={(e)=>{handleActivity(e)}}>
             <Modal
               isOpen={modalIsOpen}
               onRequestClose={closeModal}
@@ -264,7 +266,7 @@ function App() {
                               </div>
                             ))
                             :
-                            < iframe src={videoChoice} width={'100%'} height={'100%'} controls={'0'} color="white" loop={true}/>
+                            < iframe src={videoChoice} width={'100%'} height={'100%'} controls={'0'} color="white" loop={true} />
                         }
                       </div>
                     }
@@ -334,7 +336,7 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
                           <div className="commodities-container" style={{ justifyContent: 'center', alignItems: 'center' }}>
                             <img width="60" src="https://www.blogson.com.br/wp-content/uploads/2017/10/584b607f5c2ff075429dc0e7b8d142ef.gif" />
                             <h4>Carregando valor das commodities</h4>
-                            <iframe style={{ opacity: 0 }} src="https://drive.google.com/file/d/1VYaefC99bVtmtmQGw1PkLOqI7-7jK1gS/preview" width="0" height="0" frameBorder="0" scrolling="no" />
+                            <iframe style={{ opacity: 0 }} src="https://docs.google.com/document/d/1VYaefC99bVtmtmQGw1PkLOqI7-7jK1gS/edit" frameBorder="0" scrolling="no" />
                           </div>
                           :
                           <div className="commodities-container">
@@ -500,9 +502,9 @@ Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao viv
 
           </Container >
           :
-          <div onClick={() => {
+          <div onClick={(e) => {
             setMainPage(true)
-            handleActivity()
+            handleActivity(e)
 
           }}
             style={{
