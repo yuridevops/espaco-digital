@@ -62,7 +62,14 @@ const styles = {
         flex: 1,
         height: '100%',
         flexDirection: 'column',
+        justifyContent: 'center',
         alignItems: 'center'
+    },
+    ul:{
+        fontSize: '30',
+        listStyle: 'none',
+        marginTop: '30px'
+        
     }
 }
 
