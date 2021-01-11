@@ -84,6 +84,10 @@ h3{
     box-shadow: 0px 0px 28px -5px rgba(0,0,0,0.5);
 }
 
+.disabled{
+    opacity: 0.7;
+}
+
 .image-container{
     width: 100%;
     padding:3px;

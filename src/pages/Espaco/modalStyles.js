@@ -11,7 +11,7 @@ const styles = {
         flex: 1,
         backgroundImage: "radial-gradient( circle farthest-corner at 10% 20%,  rgba(215,223,252,1) 0%, rgba(255,255,255,1) 0%, rgba(215,223,252,1) 84% )",
     },
-    itemVideo:{
+    itemVideo: {
         width: "300px",
         height: "300px",
         backgroundColor: '#fff',
@@ -26,7 +26,13 @@ const styles = {
         textAlign: 'center',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-       
+
+    },
+    faceStream: {
+        display: "flex",
+        flex: 1,
+        height: '100%',
+        width: '100%'
     },
     info: {
         display: "flex",
@@ -34,6 +40,15 @@ const styles = {
         paddingLeft: '40px',
         paddingRight: '40px',
         flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'justify'
+    },
+    infoSmall: {
+        display: "flex",
+        flex: 1,
+        flexDirection: 'column',
+        margin: '10px 20px',
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'justify'

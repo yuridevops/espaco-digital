@@ -74,17 +74,17 @@ function Main() {
 
       >
         <div className="modal-content">
-          <div style={{display: "flex", justifyContent: 'flex-end'}}>
-            <IoCloseCircle  size={30} onClick={closeModal}/>
+          <div style={{ display: "flex", justifyContent: 'flex-end' }}>
+            <IoCloseCircle size={30} onClick={closeModal} />
           </div>
-          <img src={modalImage} style={{ width: 600 , maxHeight: 800}} />
+          <img src={modalImage} style={{ width: 600, maxHeight: 800 }} />
         </div>
       </Modal>
       <div className="logo-container">
         <img
           className="logo"
           src="https://logodownload.org/wp-content/uploads/2017/11/sicredi-logo.png"
-          style={{background: '#fff', padding: 15, borderRadius: 5}}
+          style={{ background: '#fff', padding: 15, borderRadius: 5 }}
         />
         <h1>Sicredi Store</h1>
       </div>
@@ -93,7 +93,7 @@ function Main() {
           <ul className="item-container">
             {
               products.map(item =>
-                <li key={item.id} className="item" onClick={() => { handleClickItem(item) }}>
+                <li key={item.id} className={item.quantity > 0 ? "item" : "disabled item"} onClick={() => { handleClickItem(item) }}>
                   <div className="image-container">
                     <img src={item.image.substring(0, item.image.length - 4) + "_high.png"} />
                   </div>
@@ -103,14 +103,26 @@ function Main() {
                       <h4>{item.description}</h4>
                     </div>
                     <div className="value-container">
-                      <div className="value-item-container">
-                        <h3>R$ {item.value}</h3>
-                        <h3 style={{ color: '#1e9b32' }}>R$ {item.value * 2}.00</h3>
-                      </div>
-                      <div className="value-item-container">
-                        <IoCashOutline size={34} color="#31363c" />
-                        <IoBarChartOutline size={34} color="#1e9b32" />
-                      </div>
+                      {
+                        item.quantity > 0 ?
+                          <>
+                            <div className="value-item-container">
+                              <h3>R$ {item.value}</h3>
+                              <h3 style={{ color: '#1e9b32' }}>R$ {item.value * 2}.00</h3>
+                            </div>
+                            <div className="value-item-container">
+                              <IoCashOutline size={34} color="#31363c" />
+                              <IoBarChartOutline size={34} color="#1e9b32" />
+                            </div>
+                          </>
+                          :
+                          <div className="value-item-container">
+                            <h3>ESGOTADO</h3>
+            
+                          </div>
+
+                      }
+
                     </div>
                   </div>
                 </li>

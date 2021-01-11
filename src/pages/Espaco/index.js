@@ -173,9 +173,9 @@ function App() {
   }
 
   function handleActivity(e) {
-    e.preventDefault(); 
+    e.preventDefault();
     setTimer(0)
-    return false; 
+    return false;
   }
 
 
@@ -235,7 +235,7 @@ function App() {
       {
         mainPage ?
 
-          <Container onClick={(e)=>{handleActivity(e)}}>
+          <Container onClick={(e) => { handleActivity(e) }}>
             <Modal
               isOpen={modalIsOpen}
               onRequestClose={closeModal}
@@ -297,18 +297,16 @@ function App() {
                     }{
                       choice === 'C3B' &&
                       <div style={modalStyles.modalContainer}>
-                        <div style={modalStyles.info}>
-                          <h1 style={modalStyles.infoTitle}>EXPERIÊNCIAS IMPRESSIONANTES COM LIBERDADE INAGUALÁVEL!</h1>
+                        <div style={modalStyles.infoSmall}>
+                          <h1 style={modalStyles.infoTitle}>Mergulhe em uma nova experiência!</h1>
                           <br />
-                          <h3>Cada detalhe foi projetado para fazer os mundos virtuais se adaptarem aos seus movimentos, permitindo que você explore jogos e experiências inspiradores com liberdade incomparável.
-
-                          Não requer PC ou console. Obtenha o máximo de cada momento com desempenho extremamente rápido e gráficos de última geração.
-
-                          Mantenha o foco com uma tela impressionante que apresenta 50% mais pixels do que a Quest original.
-Ou faça uma pausa na ação e pegue assentos na primeira fila para shows ao vivo, eventos exclusivos e muito mais.</h3>
+                          <h3>O Tinbot permite reconhecimento de fala, reconhecimento facial e reconhecimento de imagens, além de outras funcionalidades focadas em criar experiências diferenciadas.</h3>
                         </div>
-                        <div style={modalStyles.video}>
-                          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/c1nZfUDqV7U?controls=0" />
+                        <div style={modalStyles.faceStream}>
+                          <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fdesenvolvedor.oculus%2Fvideos%2F102354298494598%2F&show_text=false&width=476"
+                            width="100%"
+                            height="100%"
+                            allowFullScreen="true"></iframe>
                         </div>
                       </div>
                     }
