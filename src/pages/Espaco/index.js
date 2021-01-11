@@ -322,7 +322,7 @@ function App() {
                           <h3>Em breve nas agências</h3>
                         </div>
                         <div style={modalStyles.faceStream}>
-                          <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fdesenvolvedor.oculus%2Fvideos%2F102354298494598%2F&show_text=false&width=476"
+                          <iframe src="https://www.oculus.com/casting"
                             width="100%"
                             height="100%"
                             allowFullScreen="true"></iframe>
