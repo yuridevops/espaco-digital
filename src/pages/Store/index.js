@@ -117,7 +117,7 @@ function Main() {
                           </>
                           :
                           <div className="value-item-container">
-                            <h3>ESGOTADO</h3>
+                            <h3 style={{color: '#ff0000'}}>ESGOTADO</h3>
             
                           </div>
 
