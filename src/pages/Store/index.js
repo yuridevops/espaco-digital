@@ -5,8 +5,9 @@ import Container from './styles.js'
 import { IoBarChartOutline } from 'react-icons/io5'
 import { IoCashOutline, IoCloseCircle } from 'react-icons/io5'
 import Modal from 'react-modal';
-
-
+import { ReactSVG } from 'react-svg'
+import qrcode from '../../assets/qr_pix_store.svg'
+import qrmini from '../../assets/qr_mini.png'
 
 Modal.setAppElement(document.getElementById('root'));
 
@@ -14,8 +15,9 @@ function Main() {
   const [products, setProducts] = useState(null)
   let { id } = useParams();
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [modalImage, setModalImage] = useState("");
+  const [modalQRIsOpen, setQRIsOpen] = useState(false);
 
+  const [modalImage, setModalImage] = useState("");
 
   const customStyles = {
     content: {
@@ -28,6 +30,16 @@ function Main() {
     }
   };
 
+  const customStylesQR = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      transform: 'translate(-50%, -50%)',
+    }
+  };
+
   function openModal() {
     setIsOpen(true);
   }
@@ -36,10 +48,18 @@ function Main() {
     setIsOpen(false);
   }
 
+  function closeModalQR() {
+    setQRIsOpen(false);
+  }
+
   function handleClickItem(item) {
     const image = item.image.substring(0, item.image.length - 4) + "_high.png"
     setModalImage(image)
     openModal()
+  }
+
+  function handleClickQr() {
+    setQRIsOpen(true)
   }
 
 
@@ -80,6 +100,35 @@ function Main() {
           <img src={modalImage} style={{ width: 600, maxHeight: 800 }} />
         </div>
       </Modal>
+
+      <Modal
+        isOpen={modalQRIsOpen}
+        onRequestClose={closeModalQR}
+        style={customStylesQR}
+        contentLabel="Example Modal"
+      >
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          textAlign: 'center'
+        }}>
+
+          <div style={{ display: "flex", justifyContent: 'flex-end' , width: '100%'}}>
+            <IoCloseCircle size={30} onClick={closeModalQR} />
+          </div>
+          <h1 style={{color: '#64c832'}}>QR Code para os Fãs</h1>
+
+          <ReactSVG src={qrcode} style={{margin: 20}}/>
+          <div>
+            <h3 style={{color: '#64c832'}}>Antes de realizar o pagamento, entre em contato com algum de nossos colaboradores.</h3>
+          </div>
+
+        </div>
+      </Modal>
+
+
       <div className="logo-container">
         <img
           className="logo"
@@ -87,6 +136,11 @@ function Main() {
           style={{ background: '#fff', padding: 15, borderRadius: 5 }}
         />
         <h1>Sicredi Store</h1>
+
+        <div className="post-qr" onClick={handleClickQr}>
+          <img src={qrmini} width="50" />
+        </div>
+
       </div>
       {
         products !== null ?
@@ -117,10 +171,8 @@ function Main() {
                           </>
                           :
                           <div className="value-item-container">
-                            <h3 style={{color: '#ff0000'}}>ESGOTADO</h3>
-            
+                            <h3 style={{ color: '#ff0000' }}>ESGOTADO</h3>
                           </div>
-
                       }
 
                     </div>

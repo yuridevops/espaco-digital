@@ -39,6 +39,8 @@ h3{
 .modal-content{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo{
@@ -86,6 +88,20 @@ h3{
 
 .disabled{
     opacity: 0.7;
+}
+
+.post-qr{
+    position: fixed ;
+    left: 0;
+    bottom: 0;
+    margin-bottom: 100px;
+    background-color: #fff; 
+    padding: 5px 10px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    -webkit-box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.42);
+    -moz-box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.42);
+    box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.42);
 }
 
 .image-container{

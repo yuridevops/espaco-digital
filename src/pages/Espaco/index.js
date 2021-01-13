@@ -293,22 +293,22 @@ function App() {
                         <div style={modalStyles.video}>
                           <h1 style={modalStyles.infoTitle}>CONVERSE COM O TINBOT</h1>
                           <ul style={modalStyles.ul}>
-                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2}}>Qual time de futebol você torce ?</li>
-                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2}}>Você gosta de comer ?</li>
-                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2}}>Você quer Dominar o Mundo ?</li>
-                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2}}>Quantos anos você tem ?</li>
-                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2}}>Você já brigou com alguém  ?</li>
-                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2}}>Por que você só tem 4 dedos</li>
-                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2}}>Conte uma charada</li>
-                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2}}>Como seria o nome do seu filho ?</li>
-                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2}}>O que você acha dos humanos ?</li>
-                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2}}>No meio do caminho tinha uma pedra</li>
-                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2}}>Se  Apresente</li>
-                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2}}>Por que o seu nome é Tinbot ?</li>
-                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2}}>Quando vai acabar o mundo ?</li>
-                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2}}>Conte uma curiosidade</li>
-                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2}}>Você sabe dançar  ?</li>
-                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2}}>Dança ai</li>
+                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2 }}>Qual time de futebol você torce ?</li>
+                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2 }}>Você gosta de comer ?</li>
+                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2 }}>Você quer Dominar o Mundo ?</li>
+                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2 }}>Quantos anos você tem ?</li>
+                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2 }}>Você já brigou com alguém  ?</li>
+                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2 }}>Por que você só tem 4 dedos</li>
+                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2 }}>Conte uma charada</li>
+                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2 }}>Como seria o nome do seu filho ?</li>
+                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2 }}>O que você acha dos humanos ?</li>
+                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2 }}>No meio do caminho tinha uma pedra</li>
+                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2 }}>Se  Apresente</li>
+                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2 }}>Por que o seu nome é Tinbot ?</li>
+                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2 }}>Quando vai acabar o mundo ?</li>
+                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2 }}>Conte uma curiosidade</li>
+                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2 }}>Você sabe dançar  ?</li>
+                            <li style={{ fontWeight: 600, fontSize: 20, marginBottom: 2 }}>Dança ai</li>
                           </ul>
 
                         </div>
@@ -322,10 +322,7 @@ function App() {
                           <h3>Em breve nas agências</h3>
                         </div>
                         <div style={modalStyles.faceStream}>
-                          <iframe src="https://www.oculus.com/casting"
-                            width="100%"
-                            height="100%"
-                            allowFullScreen="true"></iframe>
+                          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdesenvolvedor.oculus%2Fvideos%2F106249974771697%2F&width=1920" width="1920" height="1080" scrolling="no" frameborder="0" allowfullscreen="true" allowFullScreen="true"></iframe>
                         </div>
                       </div>
                     }
