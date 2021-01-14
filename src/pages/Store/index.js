@@ -147,7 +147,7 @@ function Main() {
           <ul className="item-container">
             {
               products.map(item =>
-                <li key={item.id} className={item.quantity > 0 ? "item" : "disabled item"} onClick={() => { handleClickItem(item) }}>
+                <li key={item.id} className={true ? "item" : "disabled item"} onClick={() => { handleClickItem(item) }}>
                   <div className="image-container">
                     <img src={item.image.substring(0, item.image.length - 4) + "_high.png"} />
                   </div>
@@ -158,7 +158,7 @@ function Main() {
                     </div>
                     <div className="value-container">
                       {
-                        item.quantity > 0 ?
+                        true ?
                           <>
                             <div className="value-item-container">
                               <h3>R$ {item.value}</h3>
