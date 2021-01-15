@@ -322,7 +322,7 @@ function App() {
                           <h3>Em breve nas agências</h3>
                         </div>
                         <div style={modalStyles.faceStream}>
-                          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fdesenvolvedor.oculus%2Fvideos%2F106249974771697%2F&width=1920" width="1920" height="1080" scrolling="no" frameborder="0" allowfullscreen="true" allowFullScreen="true"></iframe>
+                          <iframe width="560" height="100%" src="https://www.youtube.com/embed/Y0J0q2IptSY?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay loop></iframe>
                         </div>
                       </div>
                     }

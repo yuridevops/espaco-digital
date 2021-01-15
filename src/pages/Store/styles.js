@@ -93,8 +93,7 @@ h3{
 .post-qr{
     position: fixed ;
     left: 0;
-    bottom: 0;
-    margin-bottom: 100px;
+    bottom: 50%;
     background-color: #fff; 
     padding: 5px 10px;
     border-top-right-radius: 3px;
