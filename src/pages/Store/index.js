@@ -115,14 +115,14 @@ function Main() {
           textAlign: 'center'
         }}>
 
-          <div style={{ display: "flex", justifyContent: 'flex-end' , width: '100%'}}>
+          <div style={{ display: "flex", justifyContent: 'flex-end', width: '100%' }}>
             <IoCloseCircle size={30} onClick={closeModalQR} />
           </div>
-          <h1 style={{color: '#64c832'}}>QR Code para os Fãs</h1>
+          <h1 style={{ color: '#64c832' }}>QR Code para os Fãs</h1>
 
-          <ReactSVG src={qrcode} style={{margin: 20}}/>
+          <ReactSVG src={qrcode} style={{ margin: 20 }} />
           <div>
-            <h3 style={{color: '#64c832'}}>Antes de realizar o pagamento, entre em contato com algum de nossos colaboradores.</h3>
+            <h3 style={{ color: '#64c832' }}>Antes de realizar o pagamento, entre em contato com algum de nossos colaboradores.</h3>
           </div>
 
         </div>

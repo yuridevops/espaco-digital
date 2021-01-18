@@ -266,7 +266,7 @@ function App() {
                               </div>
                             ))
                             :
-                            < iframe src={videoChoice} width={'100%'} height={'100%'} controls={'0'} color="white" loop={true} />
+                            < iframe src={videoChoice} width={'100%'} height={'100%'} controls={'0'} color="white" loop={true} autoplay autoPlay/>
                         }
                       </div>
                     }
