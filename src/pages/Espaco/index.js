@@ -544,7 +544,7 @@ function App() {
                 </h3>
               </div>
             </div>
-            <video width="100%" autoPlay loop>
+            <video width="100%" allow="autoplay" autoplay autoPlay loop>
               <source src="https://storage.googleapis.com/sicredi/videos/background.mp4" type="video/mp4" />
             </video>
             <audio autoPlay loop>
