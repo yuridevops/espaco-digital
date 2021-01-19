@@ -499,7 +499,7 @@ function App() {
                           )
                         }
                       </div>
-                      <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems:'center', width: '90%', padding: 2 }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems:'center', width: '90%' }}>
                         <div>
                           <strong>Fonte: </strong>
                           <img src="https://developer.accuweather.com/sites/all/themes/accuweather/logo.png" height="20" />
