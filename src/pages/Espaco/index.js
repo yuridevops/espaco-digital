@@ -12,7 +12,7 @@ import sicrediLogo from '../../assets/sicredi-texto.png'
 import copacolLogo from '../../assets/copacol.png'
 import cities from '../../utils/woeid2'
 import { BsDroplet } from 'react-icons/bs'
-
+import { IoCloseCircle } from 'react-icons/io5'
 
 function App() {
 
@@ -40,7 +40,7 @@ function App() {
       transform: 'translate(-50%, -50%)',
       padding: 2
     },
-    overlay:{
+    overlay: {
       backgroundColor: 'rgba(0,0,0,0.5)'
     }
   }
@@ -252,7 +252,9 @@ function App() {
               style={customStyles}
               contentLabel="Example Modal"
             >
-
+              <div style={{ position: 'fixed', right: '10px', top: '10px' }}>
+                <IoCloseCircle size={30} onClick={closeModal} />
+              </div>
               <div style={{ width: '80vw', height: '80vh' }}>
                 {
                   <div style={modalStyles.modalContainer}>
@@ -473,7 +475,7 @@ function App() {
                                 <img src={`https://developer.accuweather.com/sites/default/files/${item.iconId}-s.png`} />
                                 {
                                   false &&
-                                  <img src={`https://storage.googleapis.com/sicredi/Tela-iterativa/${item.condition}.png`}  />
+                                  <img src={`https://storage.googleapis.com/sicredi/Tela-iterativa/${item.condition}.png`} />
                                 }
                               </div >
                               {
@@ -503,7 +505,7 @@ function App() {
                           )
                         }
                       </div>
-                      <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems:'center', width: '90%' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', width: '90%' }}>
                         <div>
                           <strong>Fonte: </strong>
                           <img src="https://developer.accuweather.com/sites/all/themes/accuweather/logo.png" height="20" />
