@@ -38,6 +38,8 @@ function App() {
       right: 'auto',
       bottom: 'auto',
       transform: 'translate(-50%, -50%)',
+      overflow: 'hidden',
+      
     }
   }
 
@@ -469,7 +471,7 @@ function App() {
                                 <img src={`https://developer.accuweather.com/sites/default/files/${item.iconId}-s.png`} />
                                 {
                                   false &&
-                                  <img src={`https://storage.googleapis.com/sicredi/Tela-iterativa/${item.condition}.png`} />
+                                  <img src={`https://storage.googleapis.com/sicredi/Tela-iterativa/${item.condition}.png`}  />
                                 }
                               </div >
                               {
@@ -512,7 +514,7 @@ function App() {
                       <div className="forecast-title-container">
                         {
                           forecast !== null &&
-                          <h1>Previsão do tempo</h1>
+                          <h1>Previsão do Tempo</h1>
                         }
                       </div>
                     </div>
