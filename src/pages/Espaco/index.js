@@ -38,7 +38,10 @@ function App() {
       right: 'auto',
       bottom: 'auto',
       transform: 'translate(-50%, -50%)',
-      padding: 4
+      padding: 2
+    },
+    overlay:{
+      backgroundColor: 'rgba(0,0,0,0.5)'
     }
   }
 
