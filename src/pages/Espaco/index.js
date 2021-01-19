@@ -38,7 +38,7 @@ function App() {
       right: 'auto',
       bottom: 'auto',
       transform: 'translate(-50%, -50%)',
-      
+      padding: 4
     }
   }
 
