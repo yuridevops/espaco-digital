@@ -10,7 +10,7 @@ import { GiCorn, GiWheat } from 'react-icons/gi'
 import { FaSeedling } from 'react-icons/fa'
 import sicrediLogo from '../../assets/sicredi-texto.png'
 import copacolLogo from '../../assets/copacol.png'
-import cities from '../../utils/woeid'
+import cities from '../../utils/woeid2'
 import { BsDroplet } from 'react-icons/bs'
 
 
@@ -26,7 +26,7 @@ function App() {
   const [mainPage, setMainPage] = useState(false);
   const [timer, setTimer] = useState(-1)
   const [last, setLast] = useState(0)
-
+  const [city, setCity] = useState('')
 
   let { id } = useParams()
   let storeUrl = `${window.location.href}/store`
@@ -40,6 +40,15 @@ function App() {
       transform: 'translate(-50%, -50%)',
     }
   }
+
+  useEffect(() => {
+    async function fetch() {
+      const info = await axios.get(`https://sintetizador.rj.r.appspot.com/branchs/${id}`)
+      console.log(info.data[0].description)
+      setCity(info.data[0].description)
+    }
+    fetch()
+  }, [])
 
   function openModal(value) {
     setIsOpen(true);
@@ -71,11 +80,8 @@ function App() {
         return city
       }
     })
-    const response = await axios.get(`https://sintetizador.rj.r.appspot.com/utils/forecast/${city.woeid}`)
+    const response = await axios.get(`https://sintetizador.rj.r.appspot.com/utils/forecastv2/${city.woeid}`)
     const { forecast } = response.data
-    forecast.pop()
-    forecast.pop()
-    console.log(forecast)
     return forecast
   }
 
@@ -266,7 +272,7 @@ function App() {
                               </div>
                             ))
                             :
-                            < iframe src={videoChoice} width={'100%'} height={'100%'} controls={'0'} color="white" loop={true} allow="autoplay" autoplay autoPlay/>
+                            < iframe src={videoChoice} width={'100%'} height={'100%'} controls={'0'} color="white" loop={true} allow="autoplay" autoplay autoPlay />
                         }
                       </div>
                     }
@@ -442,7 +448,6 @@ function App() {
                 <li className="">
                   <div className="the-front" >
                     <div className="content">
-
                       <div className="forecast-container">
                         {
                           forecast !== null &&
@@ -461,16 +466,16 @@ function App() {
 
                               </div >
                               <div className="forecast-component">
+                                <img src={`https://developer.accuweather.com/sites/default/files/${item.iconId}-s.png`} />
                                 {
                                   false &&
-                                  <img src={`https://developer.accuweather.com/sites/default/files/${item.iconId}-s.png`} />
+                                  <img src={`https://storage.googleapis.com/sicredi/Tela-iterativa/${item.condition}.png`} />
                                 }
-                                <img src={`https://storage.googleapis.com/sicredi/Tela-iterativa/${item.condition}.png`} />
                               </div >
                               {
-                                false &&
+
                                 <div className="forecast-component">
-                                  <BsDroplet size={20} style={{ marginRight: 5 }} />
+                                  <BsDroplet size={18} style={{ marginRight: 5 }} />
                                   <div style={{ flexDirection: 'column', display: 'flex' }}>
                                     <h4 >{item.rainPerc}%</h4>
                                     <h4 >{item.rainMili}mm</h4>
@@ -486,11 +491,23 @@ function App() {
                                   }
                                 </h3>
                               </div >
+
                             </div>
+
                           )
 
                           )
                         }
+                      </div>
+                      <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems:'center', width: '90%', padding: 2 }}>
+                        <div>
+                          <strong>Fonte: </strong>
+                          <img src="https://developer.accuweather.com/sites/all/themes/accuweather/logo.png" height="20" />
+                        </div>
+                        <div>
+                          <strong>Cidade: </strong>
+                          <span>{city}</span>
+                        </div>
                       </div>
                       <div className="forecast-title-container">
                         {
