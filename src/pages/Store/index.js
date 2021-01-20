@@ -53,8 +53,8 @@ function Main() {
   }
 
   function handleClickItem(item) {
-    const image = item.image.substring(0, item.image.length - 4) + "_high.png"
-    setModalImage(image)
+    
+    setModalImage(item.image)
     openModal()
   }
 
@@ -149,7 +149,7 @@ function Main() {
               products.map(item =>
                 <li key={item.id} className={true ? "item" : "disabled item"} onClick={() => { handleClickItem(item) }}>
                   <div className="image-container">
-                    <img src={item.image.substring(0, item.image.length - 4) + "_high.png"} />
+                    <img src={item.image} />
                   </div>
                   <div className="text-item-container">
                     <div className="text-information">
