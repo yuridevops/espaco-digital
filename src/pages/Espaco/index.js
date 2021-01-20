@@ -10,7 +10,7 @@ import { GiCorn, GiWheat } from 'react-icons/gi'
 import { FaSeedling } from 'react-icons/fa'
 import sicrediLogo from '../../assets/sicredi-texto.png'
 import copacolLogo from '../../assets/copacol.png'
-import cities from '../../utils/woeid2'
+import cities from '../../utils/woeid'
 import { BsDroplet } from 'react-icons/bs'
 import { IoCloseCircle } from 'react-icons/io5'
 
@@ -84,8 +84,11 @@ function App() {
         return city
       }
     })
-    const response = await axios.get(`https://sintetizador.rj.r.appspot.com/utils/forecastv2/${city.woeid}`)
+    const response = await axios.get(`https://sintetizador.rj.r.appspot.com/utils/forecast/${city.woeid}`)
+
     const { forecast } = response.data
+    forecast.pop()
+    forecast.pop()
     return forecast
   }
 
@@ -472,14 +475,15 @@ function App() {
 
                               </div >
                               <div className="forecast-component">
-                                <img src={`https://developer.accuweather.com/sites/default/files/${item.iconId}-s.png`} />
                                 {
                                   false &&
-                                  <img src={`https://storage.googleapis.com/sicredi/Tela-iterativa/${item.condition}.png`} />
+                                  <img src={`https://developer.accuweather.com/sites/default/files/${item.iconId}-s.png`} />
+
                                 }
+                                <img src={`https://storage.googleapis.com/sicredi/Tela-iterativa/${item.condition}.png`} />
                               </div >
                               {
-
+                                false &&
                                 <div className="forecast-component">
                                   <BsDroplet size={18} style={{ marginRight: 5 }} />
                                   <div style={{ flexDirection: 'column', display: 'flex' }}>
