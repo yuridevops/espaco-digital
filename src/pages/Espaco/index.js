@@ -10,7 +10,7 @@ import { GiCorn, GiWheat } from 'react-icons/gi'
 import { FaSeedling } from 'react-icons/fa'
 import sicrediLogo from '../../assets/sicredi-texto.png'
 import copacolLogo from '../../assets/copacol.png'
-import cities from '../../utils/woeid'
+import cities from '../../utils/woeid2'
 import { BsDroplet } from 'react-icons/bs'
 import { IoCloseCircle } from 'react-icons/io5'
 
@@ -84,11 +84,9 @@ function App() {
         return city
       }
     })
-    const response = await axios.get(`https://sintetizador.rj.r.appspot.com/utils/forecast/${city.woeid}`)
+    const response = await axios.get(`https://sintetizador.rj.r.appspot.com/utils/forecastv2/${city.woeid}`)
 
     const { forecast } = response.data
-    forecast.pop()
-    forecast.pop()
     return forecast
   }
 
@@ -260,11 +258,11 @@ function App() {
               </div>
               <div style={{ width: '80vw', height: '80vh' }}>
                 {
-                  <div style={modalStyles.modalContainer}>
+                  <div style={{ ...modalStyles.modalContainer }}>
 
                     {
                       choice === 'C1F' &&
-                      <div style={{ ...modalStyles.modalContainer, background: '#fff' }}>
+                      <div style={{ ...modalStyles.modalContainer, background: '#fff', paddingBottom: 50 }}>
                         {
                           videoChoice === null ?
                             videoLinks.map(item => (
@@ -274,7 +272,7 @@ function App() {
                               }}
                                 onClick={() => { setVideoChoice(item.link) }}
                               >
-                                <h1>{item.name}</h1>
+                                <h2>{item.name}</h2>
                                 <div style={{ backgroundImage: `url(${item.image})`, ...modalStyles.itemVideo }} >
                                   <FaPlay size={40} />
                                 </div>
@@ -475,15 +473,16 @@ function App() {
 
                               </div >
                               <div className="forecast-component">
+
+                                <img src={`https://developer.accuweather.com/sites/default/files/${item.iconId}-s.png`} />
                                 {
                                   false &&
-                                  <img src={`https://developer.accuweather.com/sites/default/files/${item.iconId}-s.png`} />
-
+                                  <img src={`https://storage.googleapis.com/sicredi/Tela-iterativa/${item.condition}.png`} />
                                 }
-                                <img src={`https://storage.googleapis.com/sicredi/Tela-iterativa/${item.condition}.png`} />
+
                               </div >
                               {
-                                false &&
+                                true &&
                                 <div className="forecast-component">
                                   <BsDroplet size={18} style={{ marginRight: 5 }} />
                                   <div style={{ flexDirection: 'column', display: 'flex' }}>
