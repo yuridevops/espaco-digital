@@ -66,8 +66,8 @@ function Main() {
   useEffect(() => {
     async function fetch() {
       const demo = await api.post('/authenticate', {
-        email: "demo@sicredi.com.br",
-        password: "Saporei1"
+        email: "marcos_yuri@sicredi.com.br",
+        password: "123456"
       })
       const response = await api.get('/stocks', {
         params: {
