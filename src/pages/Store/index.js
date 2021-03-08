@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import api from '../../config/api'
+import api, { user, secret } from '../../config/api-orm'
 import { useParams } from 'react-router-dom'
 import Container from './styles.js'
 import { IoBarChartOutline } from 'react-icons/io5'
@@ -53,7 +53,7 @@ function Main() {
   }
 
   function handleClickItem(item) {
-    
+
     setModalImage(item.image)
     openModal()
   }
@@ -66,17 +66,13 @@ function Main() {
   useEffect(() => {
     async function fetch() {
       const demo = await api.post('/authenticate', {
-        email: "marcos_yuri@sicredi.com.br",
-        password: "123456"
+        email: user,
+        password: secret
       })
-      const response = await api.get('/stocks', {
-        params: {
-          branch: id
-        },
+      const response = await api.get(`/stocks/${id}`, {
         headers: {
           Authorization: `Bearer ${demo.data.token}`
         },
-
       })
       setProducts(response.data)
 
@@ -146,23 +142,23 @@ function Main() {
         products !== null ?
           <ul className="item-container">
             {
-              products.map(item =>
+              products.stocks.map(item =>
                 <li key={item.id} className={true ? "item" : "disabled item"} onClick={() => { handleClickItem(item) }}>
                   <div className="image-container">
-                    <img src={item.image} />
+                    <img src={item.product.image} />
                   </div>
                   <div className="text-item-container">
                     <div className="text-information">
-                      <h2 className="h2">{item.name}</h2>
-                      <h4>{item.description}</h4>
+                      <h2 className="h2">{item.product.name}</h2>
+                      <h4>{item.product.description}</h4>
                     </div>
                     <div className="value-container">
                       {
                         true ?
                           <>
                             <div className="value-item-container">
-                              <h3>R$ {item.value}</h3>
-                              <h3 style={{ color: '#1e9b32' }}>R$ {item.value * 2}.00</h3>
+                              <h3>R$ {item.product.value},00</h3>
+                              <h3 style={{ color: '#1e9b32' }}>R$ {item.product.value * 2},00</h3>
                             </div>
                             <div className="value-item-container">
                               <IoCashOutline size={34} color="#31363c" />
