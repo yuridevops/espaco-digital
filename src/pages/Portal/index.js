@@ -10,7 +10,7 @@ function Portal() {
   useEffect(() => {
     async function fetch() {
       const response = await api.get('/branchs')
-      const auxBranchs = response.data.sort((a, b) => {
+      const auxBranchs = response.data.branchs.sort((a, b) => {
         if (a.id < b.id) {
           return -1
         }
