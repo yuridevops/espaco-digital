@@ -13,6 +13,7 @@ import copacolLogo from '../../assets/copacol.png'
 import cities from '../../utils/woeid2'
 import { BsDroplet } from 'react-icons/bs'
 import { IoCloseCircle } from 'react-icons/io5'
+import TractorBG from '../../assets/tractor.jpg'
 
 function App() {
 
@@ -47,9 +48,12 @@ function App() {
 
   useEffect(() => {
     async function fetch() {
-      const info = await axios.get(`https://sintetizador.rj.r.appspot.com/branchs/${id}`)
-      console.log(info.data[0].description)
-      setCity(info.data[0].description)
+      const info = await axios.get(`https://sicredi-api.rj.r.appspot.com/branchs/${id}`)
+      if (info.data.branch.description === 'Morada do Sol') {
+        setCity('Indaiatuba')
+      } else {
+        setCity(info.data.branch.description)
+      }
     }
     fetch()
   }, [])
@@ -474,11 +478,8 @@ function App() {
                               </div >
                               <div className="forecast-component">
 
-                                <img src={`https://developer.accuweather.com/sites/default/files/${item.iconId}-s.png`} />
-                                {
-                                  false &&
-                                  <img src={`https://storage.googleapis.com/sicredi/Tela-iterativa/${item.condition}.png`} />
-                                }
+                                <img src={`https://developer.accuweather.com/sites/default/files/${item.iconId}-s.png`} width="100%" />
+                             
 
                               </div >
                               {
@@ -570,9 +571,7 @@ function App() {
                 </h3>
               </div>
             </div>
-            <video width="100%" allow="autoplay" autoplay autoPlay loop>
-              <source src="https://storage.googleapis.com/sicredi/videos/background.mp4" type="video/mp4" />
-            </video>
+            <img src={TractorBG} style={{ width: '100%', height: 'auto' }} />
             <audio autoPlay loop>
               <source src="https://storage.googleapis.com/sicredi/audios/background-music.mp3" type="audio/mpeg" />
             </audio>

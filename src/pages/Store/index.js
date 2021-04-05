@@ -53,8 +53,7 @@ function Main() {
   }
 
   function handleClickItem(item) {
-
-    setModalImage(item.image)
+    setModalImage(item.product.image)
     openModal()
   }
 
