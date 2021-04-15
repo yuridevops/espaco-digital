@@ -332,16 +332,7 @@ function App() {
                       </div>
                     }{
                       choice === 'C3B' &&
-                      <div style={modalStyles.modalContainer}>
-                        <div style={modalStyles.infoSmall}>
-                          <h1 style={modalStyles.infoTitle}>Mergulhe em uma nova experiência!</h1>
-                          <br />
-                          <h3>Em breve nas agências</h3>
-                        </div>
-                        <div style={modalStyles.faceStream}>
-                          <iframe width="560" height="100%" src="https://www.youtube.com/embed/Y0J0q2IptSY?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay loop></iframe>
-                        </div>
-                      </div>
+                      <iframe src={`${window.location.href}/genie`} width="100%" height="100%" />
                     }
                     {
                       choice === 'C5F' &&
@@ -451,7 +442,7 @@ function App() {
                     <div className="content">
                       <div className="oculus-container" />
                       <div className="label-content">
-                        <h1>Realidade Virtual</h1>
+                        <h1>Gênio do Sicredi</h1>
                       </div>
                     </div>
                   </div>
@@ -479,7 +470,7 @@ function App() {
                               <div className="forecast-component">
 
                                 <img src={`https://developer.accuweather.com/sites/default/files/${item.iconId}-s.png`} width="100%" />
-                             
+
 
                               </div >
                               {

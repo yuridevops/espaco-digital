@@ -5,6 +5,7 @@ import prepare from '../../assets/prepare-se.jpg'
 import store from '../../assets/sicredi-store.png'
 import oculus from '../../assets/oculus.jpg'
 import tinbot from '../../assets/tinbot.png'
+import genie from '../../assets/genie_portal_bg.png'
 import cine from '../../assets/cine.jpeg'
 import copacol from '../../assets/copacol.png'
 
@@ -287,8 +288,8 @@ export const Container = styled.div`
     }
 
     .oculus-container{
-        background-image: url(${oculus});
-        background-size: contain;
+        background-image: url(${genie});
+        background-size: cover;
 
         background-position: center;
         background-repeat: no-repeat;
