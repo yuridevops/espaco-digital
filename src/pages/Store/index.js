@@ -65,7 +65,7 @@ function Main() {
   useEffect(() => {
     async function fetch() {
       const demo = await api.post('/authenticate', {
-        email: user,
+        email: user, 
         password: secret
       })
       const response = await api.get(`/stocks/${id}`, {
